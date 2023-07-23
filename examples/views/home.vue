@@ -1,7 +1,8 @@
 <template>
   <div>
+    <div @click="play">click here to set audioList</div>
     <div class="name">
-      {{ currentAudioName || audioList[0].name }}
+      {{ currentAudioName }}
     </div>
     <audio-player
       ref="audioPlayer"
@@ -13,8 +14,8 @@
 </template>
 
 <script>
-import AudioPlayer from '@liripeng/vue-audio-player'
-// import AudioPlayer from '../../packages/index.js'
+// import AudioPlayer from '@liripeng/vue-audio-player'
+import AudioPlayer from '../../packages/index.js'
 
 export default {
   components: {
@@ -24,7 +25,22 @@ export default {
   data() {
     return {
       currentAudioName: '',
-      audioList: [
+      audioList: [],
+    }
+  },
+
+  methods: {
+    // Use this function if you want to do something before you start playing
+    handleBeforePlay(next) {
+      if (this.audioList.length > 0) {
+        this.currentAudioName =
+          this.audioList[this.$refs.audioPlayer.currentPlayIndex].name
+      }
+
+      next() // Start play
+    },
+    play() {
+      this.audioList = [
         {
           name: 'audio 1',
           url: 'http://music.163.com/song/media/outer/url?id=317151.mp3',
@@ -33,17 +49,8 @@ export default {
           name: 'audio 2',
           url: 'http://music.163.com/song/media/outer/url?id=281951.mp3',
         },
-      ],
-    }
-  },
-
-  methods: {
-    // Use this function if you want to do something before you start playing
-    handleBeforePlay(next) {
-      this.currentAudioName =
-        this.audioList[this.$refs.audioPlayer.currentPlayIndex].name
-
-      next() // Start play
+      ]
+      this.$refs.audioPlayer.play()
     },
   },
 }
