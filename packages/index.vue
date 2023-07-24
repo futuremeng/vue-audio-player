@@ -429,13 +429,13 @@ export default {
   watch: {
     audioList: {
       handler(val) {
-        console.log('watch audioList', val)
+        // console.log('watch audioList', val)
         if (val.length > 0) {
           // 当设置数据但未点播放时预加载准备就位
           this.currentPlayIndex = 0
           this.audioSrc = val[this.currentPlayIndex]
           this.isLoading = true
-          console.log('init audioSrc', this.audioSrc)
+          // console.log('init audioSrc', this.audioSrc)
         }
       },
       immediate: true,
@@ -506,7 +506,7 @@ export default {
       } else {
         this.timer = window.setInterval(this.playing, this.progressInterval)
       }
-      console.log('onTimeUpdate', this.currentTime)
+      // console.log('onTimeUpdate', this.currentTime)
 
       // 持续响应当前设定的播放速率
       this.$refs.audio.playbackRate = this.playbackRate
@@ -531,7 +531,7 @@ export default {
 
     // 音频播放完毕
     onEnded(event) {
-      console.log(event)
+      // console.log(event)
       // 强制把播放进度条打满
       let offsetLeft = this.$refs.audioProgressWrap.offsetWidth
       this.currentTime = this.$refs.audio.duration
@@ -542,8 +542,8 @@ export default {
 
       this.$emit('ended', event)
 
-      console.log('isLoop', this.isLoop)
-      console.log('isAutoPlayNext', this.isAutoPlayNext)
+      // console.log('isLoop', this.isLoop)
+      // console.log('isAutoPlayNext', this.isAutoPlayNext)
 
       if (this.isLoop || this.isAutoPlayNext) {
         this.playNext()
@@ -646,7 +646,7 @@ export default {
           this.currentPlayIndex = 0
         }
 
-        console.log('play ', this.currentPlayIndex, 'of ', this.audioList)
+        // console.log('play ', this.currentPlayIndex, 'of ', this.audioList)
 
         if (
           !this.audioSrc ||
@@ -655,10 +655,10 @@ export default {
         ) {
           this.audioSrc = this.audioList[this.currentPlayIndex]
           this.isLoading = true
-          console.log('update audioSrc')
+          // console.log('update audioSrc')
         }
 
-        console.log('play ', this.audioSrc)
+        // console.log('play ', this.audioSrc)
 
         // 解决 iOS 异步请求后无法播放
         if (this.isIOS) {
@@ -683,19 +683,19 @@ export default {
     },
 
     handleCanPlay() {
-      console.log('canplay')
+      // console.log('canplay')
       this.canPlay = true
       this.isPlaying = false
       this.isLoading = false
 
       if (this.isAutoPlay) {
-        console.log('isAutoPlay', this.isAutoPlay)
+        // console.log('isAutoPlay', this.isAutoPlay)
         this.play()
       }
     },
 
     handlePlay() {
-      console.log('begin to play')
+      // console.log('begin to play')
       this.$refs.audio
         .play()
         .then(() => {
@@ -704,7 +704,7 @@ export default {
           this.$emit('play')
         })
         .catch((data) => {
-          console.log('handlePlay error')
+          // console.log('handlePlay error')
           this.handleShowErrorMessage({
             message: data.message,
           })
@@ -723,7 +723,7 @@ export default {
 
     // 暂停播放
     pause() {
-      console.log('pause')
+      // console.log('pause')
       this.$refs.audio.pause()
       this.$nextTick(() => {
         this.clearTimer()
@@ -774,10 +774,14 @@ export default {
     // 播放下一首
     playNext() {
       // 已经到达列表最后一首
-      if (this.currentPlayIndex + 1 >= this.audioList.length && !this.isLoop) {
-        // 无下一首了
-        this.currentPlayIndex = -1
-        return
+      if (this.currentPlayIndex + 1 >= this.audioList.length) {
+        if (this.isLoop) {
+          this.currentPlayIndex = -1
+        } else {
+          // 无下一首了
+          this.currentPlayIndex = -1
+          return
+        }
       }
 
       this.clearTimer()
@@ -793,12 +797,12 @@ export default {
         // 播放下一首时添加下一首和循环间隔，上一首时不添加间隔
         let interval = this.nextInterval + (this.isLoop ? this.loopInterval : 0)
         window.setTimeout(() => {
-          console.log(interval, 'ms later')
+          // console.log(interval, 'ms later')
           this.$nextTick(() => {
             this.play()
             this.$emit('play-next')
           })
-        }, this.interval)
+        }, interval)
       }
 
       if (this.beforeNext) {

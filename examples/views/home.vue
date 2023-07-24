@@ -57,7 +57,10 @@ export default {
     // Use this function if you want to do something before you start playing
     handleBeforePlay(next) {
       console.log('handleBeforePlay')
-      if (this.audioList.length > 0) {
+      if (
+        this.audioList.length > 0 &&
+        this.$refs.audioPlayer.currentPlayIndex > -1
+      ) {
         this.currentAudioName =
           this.audioList[this.$refs.audioPlayer.currentPlayIndex].name
       }
