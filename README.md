@@ -95,13 +95,15 @@ export default {
 | - | - | - | - |
 | audio-list | Audio playlist | `Array` | - |
 | playback-rates | Playrate setting list | `Array<Number>` | `[0.5, 1, 1.5, 2]` |
+| show-loop-button | Whether to display the loop switch button | `Boolean` | `true` |
 | show-play-button | Whether to display the play button | `Boolean` | `true` |
 | show-prev-button | Whether to display the previous button | `Boolean` | `true` |
 | show-next-button | Whether to display the next button | `Boolean` | `true` |
 | show-volume-button | Whether to display the volume button | `Boolean` | `true` |
 | show-progress-bar | Whether to display a progress bar | `Boolean` | `true` |
 | show-playback-rate | Whether to display the play rate button | `Boolean` | `true` |
-| isLoop | Whether the list plays in a loop | `Boolean` | `true` |
+| show-info-botton | Whether to display the info button | `Boolean` | `true` |
+| is-loop | Whether the list plays in a loop | `Boolean` | `true` |
 | disabled-progress-drag | Disable progress bar drag functionality | `Boolean` | `false` |
 | disabled-progress-click | Disable progress bar clickable functionality | `Boolean` | `false` |
 | progress-interval | Progress update interval | `Number` | `1000` |
@@ -127,6 +129,8 @@ export default {
 | progress-move | Triggered when moving the progress bar | `event` |
 | progress-end | Triggered after moving the progress bar | `event` |
 | progress-click | Click the progress bar to trigger | `event` |
+| loop | Click the loop button to change isLoop | `event` |
+| info | Click the info button to show info | `event` |
 
 ## Slot
 | Name | Explain |

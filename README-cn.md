@@ -95,13 +95,15 @@ export default {
 | - | - | - | - |
 | audio-list | 音频播放列表 | `Array` | - |
 | playback-rates | 播放速率设定列表 | `Array<Number>` | `[0.5, 1, 1.5, 2]` |
+| show-loop-button | 是否显示循环开关按钮 | `Boolean` | `true` |
 | show-play-button | 是否显示播放按钮 | `Boolean` | `true` |
 | show-prev-button | 是否显示上一首按钮 | `Boolean` | `true` |
 | show-next-button | 是否显示下一首按钮 | `Boolean` | `true` |
 | show-volume-button | 是否显示音量按钮 | `Boolean` | `true` |
 | show-progress-bar | 是否显示进度条 | `Boolean` | `true` |
 | show-playback-rate | 是否显示播放速率按钮 | `Boolean` | `true` |
-| isLoop | 是否列表循环播放 | `Boolean` | `true` |
+| show-info-botton | 是否显示信息按钮 | `Boolean` | `true` |
+| is-loop | 是否列表循环播放 | `Boolean` | `true` |
 | disabled-progress-drag | 是否禁用进度条可拖拽功能 | `Boolean` | `false` |
 | disabled-progress-click | 是否禁用进度条可点击功能 | `Boolean` | `false` |
 | progress-interval | 进度更新间隔 | `Number` | `1000` |
@@ -127,6 +129,8 @@ export default {
 | progress-move | 移动进度条时触发 | `event` |
 | progress-end | 移动进度条后触发 | `event` |
 | progress-click | 点击进度条后触发 | `event` |
+| loop | Click the loop button to change isLoop | `event` |
+| info | Click the info button to show info | `event` |
 
 ## 插槽
 | 名称 | 说明 |
