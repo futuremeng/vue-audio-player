@@ -6,8 +6,11 @@
     </div>
     <audio-player
       ref="audioPlayer"
-      :audio-list="audioList.map((elm) => elm.url)"
+      :audio-list="playList"
       :before-play="handleBeforePlay"
+      :is-loop="false"
+      :is-auto-play-next="true"
+      @play="handlePlay"
     >
     </audio-player>
   </div>
@@ -25,22 +28,7 @@ export default {
   data() {
     return {
       currentAudioName: '',
-      audioList: [],
-    }
-  },
-
-  methods: {
-    // Use this function if you want to do something before you start playing
-    handleBeforePlay(next) {
-      if (this.audioList.length > 0) {
-        this.currentAudioName =
-          this.audioList[this.$refs.audioPlayer.currentPlayIndex].name
-      }
-
-      next() // Start play
-    },
-    play() {
-      this.audioList = [
+      audioList: [
         {
           name: 'audio 1',
           url: 'http://music.163.com/song/media/outer/url?id=317151.mp3',
@@ -49,9 +37,39 @@ export default {
           name: 'audio 2',
           url: 'http://music.163.com/song/media/outer/url?id=281951.mp3',
         },
-      ]
+      ],
+      playList: [],
+    }
+  },
+
+  methods: {
+    // Use this function if you want to do something before you start playing
+    handleBeforePlay(next) {
+      console.log('handleBeforePlay')
+      if (this.audioList.length > 0) {
+        this.currentAudioName =
+          this.audioList[this.$refs.audioPlayer.currentPlayIndex].name
+      }
+      next() // Start play
+    },
+    play() {
+      this.playList = this.audioList.map((elm) => elm.url)
+      console.log('playList', this.playList)
       this.$refs.audioPlayer.play()
     },
+    handlePlay() {
+      // when user click play button before data is setted
+      console.log('handlePlay outside')
+      if (this.playList.length === 0 && this.audioList.length > 0) {
+        this.play()
+      }
+    },
+  },
+  mounted() {
+    // this.playList = [
+    //   'http://music.163.com/song/media/outer/url?id=317151.mp3',
+    //   'http://music.163.com/song/media/outer/url?id=281951.mp3',
+    // ]
   },
 }
 </script>

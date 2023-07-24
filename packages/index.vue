@@ -56,9 +56,9 @@
         />
       </div>
 
-      <template v-else>
+      <template v-else-if="showPlayButton">
         <div
-          v-if="!isPlaying && showPlayButton"
+          v-if="!isPlaying"
           class="audio__play-start"
           @click.stop="play"
           :style="{
@@ -71,9 +71,8 @@
             </svg>
           </slot>
         </div>
-
         <div
-          v-else-if="showPlayButton"
+          v-else
           class="audio__play-pause"
           @click.stop="pause"
           :style="{
@@ -184,11 +183,12 @@
     <audio
       ref="audio"
       class="audio-player__audio"
-      :src="audioList[currentPlayIndex]"
+      :src="audioSrc"
       v-bind="$attrs"
-      @ended="onEnded"
-      @timeupdate="onTimeUpdate"
       @loadedmetadata="onLoadedmetadata"
+      @canplay="handleCanPlay"
+      @timeupdate="onTimeUpdate"
+      @ended="onEnded"
     >
       浏览器太老咯，请升级浏览器吧~
     </audio>
@@ -262,7 +262,7 @@ export default {
     // 是否列表循环播放
     isLoop: {
       type: Boolean,
-      default: true,
+      default: false,
     },
 
     // 是否自动播放下一首
@@ -271,9 +271,15 @@ export default {
       default: true,
     },
 
+    // 加载后是否自动播放
+    isAutoPlay: {
+      type: Boolean,
+      default: true,
+    },
+
     // 进度更新间隔
     progressInterval: {
-      default: 1000,
+      default: 100,
       type: Number,
     },
 
@@ -335,11 +341,13 @@ export default {
       timer: null,
       noticeMessage: '',
       duration: '', // 音频持续时间
-      currentPlayIndex: 0, // 当前播放的音频位置索引
+      currentPlayIndex: -1, // 当前播放的音频位置索引
       currentTime: '', // 音频当前播放时间
       currentVolume: 1, // 当前音量
       playbackRate: 1, // 当前播放速率
       at: null,
+      audioSrc: '', // audioList[currentPlayIndex]
+      canPlay: false,
     }
   },
 
@@ -350,6 +358,22 @@ export default {
 
     durationFormatted() {
       return this.duration ? this.formatTime(this.duration) : '00:00'
+    },
+  },
+
+  watch: {
+    audioList: {
+      handler(val) {
+        console.log('watch audioList', val)
+        if (val.length > 0) {
+          // 当设置数据但未点播放时预加载准备就位
+          this.currentPlayIndex = 0
+          this.audioSrc = val[this.currentPlayIndex]
+          this.isLoading = true
+          console.log('init audioSrc', this.audioSrc)
+        }
+      },
+      immediate: true,
     },
   },
 
@@ -411,6 +435,16 @@ export default {
 
     // 当前的播放位置发送改变时触发
     onTimeUpdate(event) {
+      // 定义定时更新的时间进度
+      if (this.timer) {
+        this.currentTime = this.$refs.audio.currentTime
+      } else {
+        this.timer = window.setInterval(this.playing, this.progressInterval)
+      }
+      console.log('onTimeUpdate', this.currentTime)
+
+      // 持续响应当前设定的播放速率
+      this.$refs.audio.playbackRate = this.playbackRate
       this.$emit('timeupdate', event)
     },
 
@@ -432,14 +466,23 @@ export default {
 
     // 音频播放完毕
     onEnded(event) {
-      window.setTimeout(() => {
-        this.pause()
-        this.$emit('ended', event)
+      console.log(event)
+      // 强制把播放进度条打满
+      let offsetLeft = this.$refs.audioProgressWrap.offsetWidth
+      this.currentTime = this.$refs.audio.duration
+      this.$refs.audioProgress.style.width = offsetLeft + 'px' // 设置播放进度条
+      this.$refs.audioProgressPoint.style.left = offsetLeft + 'px'
 
-        if (this.isLoop && this.isAutoPlayNext) {
-          this.playNext()
-        }
-      }, 1000)
+      this.pause()
+
+      this.$emit('ended', event)
+
+      console.log('isLoop', this.isLoop)
+      console.log('isAutoPlayNext', this.isAutoPlayNext)
+
+      if (this.isLoop || this.isAutoPlayNext) {
+        this.playNext()
+      }
     },
 
     handleProgressPanstart(event) {
@@ -468,7 +511,7 @@ export default {
 
       offsetLeft = Math.min(
         offsetLeft,
-        this.$refs.audioProgressWrap.offsetWidth
+        this.$refs.audioProgressWrap.offsetWidth,
       )
       offsetLeft = Math.max(offsetLeft, 0)
       // 设置点点位置
@@ -529,70 +572,93 @@ export default {
 
     // 开始播放
     play() {
-      this.isLoading = true
-
-      let handlePlay = () => {
-        this.$refs.audio
-          .play()
-          .then(() => {
-            this.$nextTick(() => {
-              if (this.timer) {
-                this.currentTime = this.$refs.audio.currentTime
-              } else {
-                this.timer = window.setInterval(
-                  this.playing,
-                  this.progressInterval
-                )
-              }
-
-              this.isPlaying = true
-              this.isLoading = false
-              this.$refs.audio.playbackRate = this.playbackRate
-            })
-            this.$emit('play')
-          })
-          .catch((data) => {
-            this.handleShowErrorMessage({
-              message: data.message,
-            })
-
-            // Failed to load because no supported source was found.
-            if (data.code === 9) {
-              if (this.isAutoPlayNext) {
-                window.setTimeout(() => {
-                  this.playNext()
-                }, 3000)
-              }
-            }
-
-            this.isLoading = false
-            this.$emit('play-error', data)
-          })
-      }
-
-      // 解决 iOS 异步请求后无法播放
-      if (this.isIOS) {
-        console.log(
-          '为了解决 iOS 设备接口异步请求后出现无法播放问题，请无视 The play() request was interrupted by a call to pause() 错误'
-        )
-        this.$refs.audio.play()
-        this.$refs.audio.pause()
-      }
-
-      if (this.beforePlay) {
-        this.beforePlay((state) => {
-          if (state !== false) {
-            handlePlay()
-          }
-        })
+      if (this.audioList.length === 0) {
+        // 直接返回play事件，告诉父组件用户请求播放
+        this.$emit('play')
         return
-      }
+      } else {
+        if (this.currentPlayIndex < 0) {
+          this.currentPlayIndex = 0
+        }
 
-      handlePlay()
+        console.log('play ', this.currentPlayIndex, 'of ', this.audioList)
+
+        if (
+          !this.audioSrc ||
+          this.audioSrc === '' ||
+          this.audioSrc !== this.audioList[this.currentPlayIndex]
+        ) {
+          this.audioSrc = this.audioList[this.currentPlayIndex]
+          this.isLoading = true
+          console.log('update audioSrc')
+        }
+
+        console.log('play ', this.audioSrc)
+
+        // 解决 iOS 异步请求后无法播放
+        if (this.isIOS) {
+          console.log(
+            '为了解决 iOS 设备接口异步请求后出现无法播放问题，请无视 The play() request was interrupted by a call to pause() 错误',
+          )
+          this.$refs.audio.play()
+          this.$refs.audio.pause()
+        }
+
+        if (this.beforePlay) {
+          this.beforePlay((state) => {
+            if (state !== false) {
+              this.handlePlay()
+            }
+          })
+          return
+        }
+
+        this.handlePlay()
+      }
+    },
+
+    handleCanPlay() {
+      console.log('canplay')
+      this.canPlay = true
+      this.isPlaying = false
+      this.isLoading = false
+
+      if (this.isAutoPlay) {
+        console.log('isAutoPlay', this.isAutoPlay)
+        this.play()
+      }
+    },
+
+    handlePlay() {
+      console.log('begin to play')
+      this.$refs.audio
+        .play()
+        .then(() => {
+          this.isLoading = false
+          this.isPlaying = true
+          this.$emit('play')
+        })
+        .catch((data) => {
+          console.log('handlePlay error')
+          this.handleShowErrorMessage({
+            message: data.message,
+          })
+
+          // Failed to load because no supported source was found.
+          if (data.code === 9) {
+            if (this.isAutoPlayNext) {
+              window.setTimeout(() => {
+                this.playNext()
+              }, 3000)
+            }
+          }
+          this.$emit('play-error', data)
+        })
     },
 
     // 暂停播放
     pause() {
+      console.log('pause')
       this.$refs.audio.pause()
       this.$nextTick(() => {
         this.clearTimer()
@@ -642,19 +708,21 @@ export default {
 
     // 播放下一首
     playNext() {
+      // 已经到达列表最后一首
       if (this.currentPlayIndex + 1 >= this.audioList.length && !this.isLoop) {
         // 无下一首了
+        this.currentPlayIndex = -1
         return
       }
 
       this.clearTimer()
 
       let handleNext = () => {
-        // 已经到达列表最后一首
-        if (this.currentPlayIndex + 1 >= this.audioList.length && this.isLoop) {
-          this.currentPlayIndex = 0
-        } else {
+        // 是否自动播放下一首
+        if (this.isAutoPlayNext) {
           this.currentPlayIndex++
+        } else {
+          return
         }
 
         this.$nextTick(() => {
