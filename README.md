@@ -25,7 +25,13 @@
 ## Use
 ### Step one：
 ```
-npm i -S @liripeng/vue-audio-player
+npm i -S @futuremeng/vue-audio-player
+```
+
+or
+
+```
+yarn install -S @futuremeng/vue-audio-player
 ```
 
 ### Step two：
@@ -107,6 +113,8 @@ export default {
 | disabled-progress-drag | Disable progress bar drag functionality | `Boolean` | `false` |
 | disabled-progress-click | Disable progress bar clickable functionality | `Boolean` | `false` |
 | progress-interval | Progress update interval | `Number` | `1000` |
+| loop-interval | interval before return to play first | `Number` | `3000` |
+| next-interval | interval before play next | `Number` | `1000` |
 | theme-color | Theme color | `String` | `#e35924` |
 | before-play | The callback function before the play starts<br>The play starts after `next()` is called | `(next)=>void` | - |
 | before-prev | Play the previous callback function<br>After calling `next()`, the previous song starts playing | `(next)=>void` | - |
@@ -162,6 +170,10 @@ Call with `ref`，see the components for more [data](https://github.com/10141560
 Call with `ref`，see the components for more [methods](https://github.com/1014156094/vue-audio-player/blob/master/packages/audio-player/index.vue)
 
 ## Update log
+
+### v1.5.8【2023/07/24】
+- Feature：show-loop-button、show-info-botton、show-error-message、loopInterval、nextInterval
+- Feature：loop、info
 
 ### v1.5.2【2023/07/12】
 - Fix: When I select double playback speed, it doesn't work when the next song is played.

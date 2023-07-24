@@ -170,7 +170,10 @@
         </slot>
       </div>
 
-      <div v-show="isShowErrorMessage" class="audio__notice">
+      <div
+        v-show="showErrorMessage && isShowErrorMessage"
+        class="audio__notice"
+      >
         {{ noticeMessage }}
       </div>
     </div>
@@ -273,6 +276,12 @@ export default {
 
     // 是否显示帮助信息按钮
     showInfoButton: {
+      default: true,
+      type: Boolean,
+    },
+
+    // 是否显示错误信息
+    showErrorMessage: {
       default: true,
       type: Boolean,
     },

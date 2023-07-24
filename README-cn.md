@@ -28,6 +28,12 @@
 npm i -S @liripeng/vue-audio-player
 ```
 
+或
+
+```
+yarn install -S @futuremeng/vue-audio-player
+```
+
 ### 第二步：
 ```
 // 全局引入
@@ -107,6 +113,8 @@ export default {
 | disabled-progress-drag | 是否禁用进度条可拖拽功能 | `Boolean` | `false` |
 | disabled-progress-click | 是否禁用进度条可点击功能 | `Boolean` | `false` |
 | progress-interval | 进度更新间隔 | `Number` | `1000` |
+| loop-interval | 循环播放间隔 | `Number` | `3000` |
+| next-interval | 播放下一个间隔 | `Number` | `1000` |
 | theme-color | 主题色 | `String` | `#e35924` |
 | before-play | 播放开始前的回调函数<br>调用 next() 后开始播放 | `(next)=>void` | - |
 | before-prev | 播放上一首前的回调函数<br>调用 next() 后开始播放上一首 | `(next)=>void` | - |
@@ -162,6 +170,10 @@ export default {
 使用 `ref` 调用， 更多请自行查看组件 [methods](https://github.com/1014156094/vue-audio-player/blob/master/packages/audio-player/index.vue)
 
 ## 更新日志
+
+### v1.5.8【2023/07/24】
+- 新增：属性show-loop-button、show-info-botton、show-error-message、loopInterval、nextInterval
+- 新增：事件loop、info
 
 ### v1.5.2【2023/07/12】
 - 修复: 选择了两倍播放，下一首的时候又默认变回一倍了
