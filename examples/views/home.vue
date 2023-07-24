@@ -8,9 +8,14 @@
       ref="audioPlayer"
       :audio-list="playList"
       :before-play="handleBeforePlay"
-      :is-loop="false"
+      :is-loop="isLoop"
       :is-auto-play-next="true"
       @play="handlePlay"
+      @loop="
+        (val) => {
+          isLoop = val
+        }
+      "
     >
     </audio-player>
   </div>
@@ -39,6 +44,7 @@ export default {
         },
       ],
       playList: [],
+      isLoop: false,
     }
   },
 

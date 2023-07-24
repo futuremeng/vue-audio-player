@@ -2,6 +2,21 @@
   <div class="audio-player">
     <div class="audio__btn-wrap">
       <div
+        v-if="showLoopButton"
+        :class="isLoop ? 'audio__play-loop' : 'audio__play-loop none-loop'"
+        @click.stop="$emit('loop', !isLoop)"
+        :style="{
+          color: themeColor,
+        }"
+      >
+        <slot name="play-loop">
+          <svg class="audio__loop-icon" aria-hidden="true">
+            <use xlink:href="#icon-loop" />
+          </svg>
+        </slot>
+      </div>
+
+      <div
         v-if="showPlaybackRate"
         class="audio__play-rate"
         :style="{
@@ -212,6 +227,12 @@ export default {
     },
 
     // 是否显示播放按钮
+    showLoopButton: {
+      default: true,
+      type: Boolean,
+    },
+
+    // 是否显示播放按钮
     showPlayButton: {
       default: true,
       type: Boolean,
@@ -338,6 +359,7 @@ export default {
     'playing',
     'play',
     'play-error',
+    'loop',
   ],
 
   data() {
@@ -842,6 +864,25 @@ export default {
   bottom: 0;
   left: 0;
   border-radius: 10px;
+}
+
+.audio-player .audio__play-loop.none-loop {
+  opacity: 0.5;
+}
+
+.audio-player .audio__play-loop {
+  margin: 0 16px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.audio-player .audio__play-loop svg {
+  display: block;
+  width: 21px;
+  height: 33px;
+  fill: currentColor;
 }
 
 .audio-player .audio__play-rate {
