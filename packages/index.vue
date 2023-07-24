@@ -265,10 +265,22 @@ export default {
       default: false,
     },
 
+    // 循环播放间隔
+    loopInterval: {
+      default: 3000,
+      type: Number,
+    },
+
     // 是否自动播放下一首
     isAutoPlayNext: {
       type: Boolean,
       default: true,
+    },
+
+    // 播放下一首间隔
+    nextInterval: {
+      default: 1000,
+      type: Number,
     },
 
     // 加载后是否自动播放
@@ -725,10 +737,15 @@ export default {
           return
         }
 
-        this.$nextTick(() => {
-          this.play()
-          this.$emit('play-next')
-        })
+        // 播放下一首时添加下一首和循环间隔，上一首时不添加间隔
+        let interval = this.nextInterval + (this.isLoop ? this.loopInterval : 0)
+        window.setTimeout(() => {
+          console.log(interval, 'ms later')
+          this.$nextTick(() => {
+            this.play()
+            this.$emit('play-next')
+          })
+        }, this.interval)
       }
 
       if (this.beforeNext) {
