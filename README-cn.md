@@ -137,8 +137,9 @@ export default {
 | progress-move | 移动进度条时触发 | `event` |
 | progress-end | 移动进度条后触发 | `event` |
 | progress-click | 点击进度条后触发 | `event` |
-| loop | Click the loop button to change isLoop | `event` |
-| info | Click the info button to show info | `event` |
+| loop | 用户点击loop-button后切换is-loop设置状态 | `event` |
+| info | 用户点击info-button后触发info事件 | `event` |
+| list-end | 播放列表播放完毕时触发 | `event` |
 
 ## 插槽
 | 名称 | 说明 |
@@ -170,6 +171,9 @@ export default {
 使用 `ref` 调用， 更多请自行查看组件 [methods](https://github.com/1014156094/vue-audio-player/blob/master/packages/audio-player/index.vue)
 
 ## 更新日志
+
+### v1.5.10【2023/07/24】
+- 新增：事件list-end
 
 ### v1.5.8【2023/07/24】
 - 新增：属性show-loop-button、show-info-botton、show-error-message、loopInterval、nextInterval

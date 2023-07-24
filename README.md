@@ -139,6 +139,7 @@ export default {
 | progress-click | Click the progress bar to trigger | `event` |
 | loop | Click the loop button to change isLoop | `event` |
 | info | Click the info button to show info | `event` |
+| list-end | Triggered after audio-list to the end | `event` |
 
 ## Slot
 | Name | Explain |
@@ -170,6 +171,9 @@ Call with `ref`，see the components for more [data](https://github.com/10141560
 Call with `ref`，see the components for more [methods](https://github.com/1014156094/vue-audio-player/blob/master/packages/audio-player/index.vue)
 
 ## Update log
+
+### v1.5.10【2023/07/24】
+- Feature：Event list-end
 
 ### v1.5.8【2023/07/24】
 - Feature：show-loop-button、show-info-botton、show-error-message、loopInterval、nextInterval

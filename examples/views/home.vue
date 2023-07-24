@@ -21,6 +21,11 @@
           console.log('info')
         }
       "
+      @list-end="
+        () => {
+          console.log('list-end')
+        }
+      "
     >
     </audio-player>
   </div>

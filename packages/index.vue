@@ -391,6 +391,7 @@ export default {
     'play-error',
     'loop',
     'info',
+    'list-end',
   ],
 
   data() {
@@ -775,6 +776,7 @@ export default {
     playNext() {
       // 已经到达列表最后一首
       if (this.currentPlayIndex + 1 >= this.audioList.length) {
+        this.$emit('list-end')
         if (this.isLoop) {
           this.currentPlayIndex = -1
         } else {
