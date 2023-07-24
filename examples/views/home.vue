@@ -16,6 +16,11 @@
           isLoop = val
         }
       "
+      @info="
+        () => {
+          console.log('info')
+        }
+      "
     >
     </audio-player>
   </div>

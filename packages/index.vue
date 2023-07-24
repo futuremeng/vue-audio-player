@@ -155,6 +155,21 @@
         </transition>
       </div>
 
+      <div
+        v-if="showInfoButton"
+        class="audio__info"
+        @click.stop="$emit('info')"
+        :style="{
+          color: themeColor,
+        }"
+      >
+        <slot name="play-loop">
+          <svg class="audio__info-icon" aria-hidden="true">
+            <use xlink:href="#icon-info" />
+          </svg>
+        </slot>
+      </div>
+
       <div v-show="isShowErrorMessage" class="audio__notice">
         {{ noticeMessage }}
       </div>
@@ -252,6 +267,12 @@ export default {
 
     // 是否显示音量按钮
     showVolumeButton: {
+      default: true,
+      type: Boolean,
+    },
+
+    // 是否显示帮助信息按钮
+    showInfoButton: {
       default: true,
       type: Boolean,
     },
@@ -360,6 +381,7 @@ export default {
     'play',
     'play-error',
     'loop',
+    'info',
   ],
 
   data() {
@@ -879,6 +901,21 @@ export default {
 }
 
 .audio-player .audio__play-loop svg {
+  display: block;
+  width: 21px;
+  height: 33px;
+  fill: currentColor;
+}
+
+.audio-player .audio__info {
+  margin: 0 16px;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.audio-player .audio__info svg {
   display: block;
   width: 21px;
   height: 33px;
