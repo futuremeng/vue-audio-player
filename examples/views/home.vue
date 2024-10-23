@@ -32,7 +32,7 @@
 </template>
 
 <script>
-// import AudioPlayer from '@liripeng/vue-audio-player'
+// import AudioPlayer from '@futuremeng/vue-audio-player'
 import AudioPlayer from '../../packages/index.js'
 
 export default {

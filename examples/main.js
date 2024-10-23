@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-// import AudioPlayer from '@liripeng/vue-audio-player';
+// import AudioPlayer from '@futuremeng/vue-audio-player';
 
 const app = createApp(App)
 

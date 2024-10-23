@@ -1,8 +1,8 @@
 <h3 align="center" style="margin: 30px 0 35px;">Vue Audio Player Component</h3>
 
 <p align="center">
-    <img src="https://img.shields.io/npm/v/@liripeng/vue-audio-player.svg" />
-    <img src="https://img.shields.io/bundlephobia/min/@liripeng/vue-audio-player" />
+    <img src="https://img.shields.io/npm/v/@futuremeng/vue-audio-player.svg" />
+    <img src="https://img.shields.io/bundlephobia/min/@futuremeng/vue-audio-player" />
     <img src="https://img.shields.io/github/stars/1014156094/vue-audio-player" />
     <img src="https://img.shields.io/github/forks/1014156094/vue-audio-player" />
     <img src="https://img.shields.io/github/license/1014156094/vue-audio-player" />
@@ -12,7 +12,7 @@
 
 ## [中文文档](./README-cn.md) | **English Document**
 
-## <a href="https://codesandbox.io/s/liripengvue-audio-player-issue-moban-cb57s?file=/src/App.vue&resolutionWidth=320&resolutionHeight=675">Online Demo</a>
+## <a href="https://codesandbox.io/p/github/futuremeng/vue-audio-player/master?resolutionHeight=675&resolutionWidth=320">Online Demo</a>
 
 ## Features
 - `Vue2` and `Vue3` are supported
@@ -37,14 +37,14 @@ yarn install -S @futuremeng/vue-audio-player
 ### Step two：
 ```
 // global import
-import AudioPlayer from '@liripeng/vue-audio-player'
+import AudioPlayer from '@futuremeng/vue-audio-player'
 
 Vue.use(AudioPlayer)
 ```
 or
 ```
 // part import
-import AudioPlayer from '@liripeng/vue-audio-player'
+import AudioPlayer from '@futuremeng/vue-audio-player'
 
 components: {
   AudioPlayer
@@ -192,7 +192,7 @@ Call with `ref`，see the components for more [methods](https://github.com/10141
 - Improvement：Appearance and layout
 ### v1.3.0【2022/01/25】
 - Improvement：Reduced package volume
-- Modify：Style import changed to `import '@liripeng/vue-audio-player/lib/style.css'`
+- Modify：Style import changed to `import '@futuremeng/vue-audio-player/lib/style.css'`
 ### v1.2.11【2021/06/17】
 - Feature：`disabled-progress-drag` prop
 - Feature：`disabled-progress-click` prop

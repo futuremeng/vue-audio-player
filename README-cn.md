@@ -1,8 +1,8 @@
 <h3 align="center" style="margin: 30px 0 35px;">Vue 音频播放器组件</h3>
 
 <p align="center">
-    <img src="https://img.shields.io/npm/v/@liripeng/vue-audio-player.svg" />
-    <img src="https://img.shields.io/bundlephobia/min/@liripeng/vue-audio-player" />
+    <img src="https://img.shields.io/npm/v/@futuremeng/vue-audio-player.svg" />
+    <img src="https://img.shields.io/bundlephobia/min/@futuremeng/vue-audio-player" />
     <img src="https://img.shields.io/github/stars/1014156094/vue-audio-player" />
     <img src="https://img.shields.io/github/forks/1014156094/vue-audio-player" />
     <img src="https://img.shields.io/github/license/1014156094/vue-audio-player" />
@@ -12,7 +12,7 @@
 
 ## **中文文档** | [English Document](./README.md)
 
-## <a href="https://codesandbox.io/s/liripengvue-audio-player-issue-moban-cb57s?file=/src/App.vue&resolutionWidth=320&resolutionHeight=675">在线预览 Demo</a>
+## <a href="https://codesandbox.io/p/github/futuremeng/vue-audio-player/master?resolutionHeight=675&resolutionWidth=320">在线预览 Demo</a>
 
 ## 特性
 - 支持 `Vue2` 和 `Vue3`
@@ -25,7 +25,7 @@
 ## 使用
 ### 第一步：
 ```
-npm i -S @liripeng/vue-audio-player
+npm i -S @futuremeng/vue-audio-player
 ```
 
 或
@@ -37,14 +37,14 @@ yarn install -S @futuremeng/vue-audio-player
 ### 第二步：
 ```
 // 全局引入
-import AudioPlayer from '@liripeng/vue-audio-player'
+import AudioPlayer from '@futuremeng/vue-audio-player'
 
 Vue.use(AudioPlayer)
 ```
 或者
 ```
 // 局部引入
-import AudioPlayer from '@liripeng/vue-audio-player'
+import AudioPlayer from '@futuremeng/vue-audio-player'
 
 components: {
   AudioPlayer
@@ -192,7 +192,7 @@ export default {
 - 优化：外观和布局
 ### v1.3.0【2022/01/25】
 - 优化：缩小包体积
-- 修改：样式引入改为 `import '@liripeng/vue-audio-player/lib/style.css'`
+- 修改：样式引入改为 `import '@futuremeng/vue-audio-player/lib/style.css'`
 ### v1.2.11【2021/06/17】
 - 新增：`disabled-progress-drag` 属性
 - 新增：`disabled-progress-click` 属性

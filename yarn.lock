@@ -198,7 +198,7 @@
   dependencies:
     "@any-touch/core" "^2.2.0"
     "@any-touch/pan" "^2.2.0"
-    "@liripeng/vue-audio-player" "1.5.1"
+    "@futuremeng/vue-audio-player" "1.5.1"
     vue "^3.2.47"
     vue-router "^4.2.4"
 
@@ -226,9 +226,9 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
-"@liripeng/vue-audio-player@1.3.0-beta5":
+"@futuremeng/vue-audio-player@1.3.0-beta5":
   version "1.3.0-beta5"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.3.0-beta5.tgz#3d4b5285726efb17b55db813b04dc3290cc36a0e"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.3.0-beta5.tgz#3d4b5285726efb17b55db813b04dc3290cc36a0e"
   integrity sha512-00XSEiRjz5ZLcKKkaLXXhcC0092Qz+rgi2vEAsm9vR9wtK2FNP87Ot+qozBKSR/1zWQp1RAhTDcb0tQ+XcbKjw==
   dependencies:
     "@any-touch/core" "^2.0.1"
@@ -236,58 +236,58 @@
     vue "^3.2.26"
     vue-router "^4.0.12"
 
-"@liripeng/vue-audio-player@1.4.0":
+"@futuremeng/vue-audio-player@1.4.0":
   version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.0.tgz#0927db1d7d1b9e755a4dbe689a78492a7c7b44c8"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.4.0.tgz#0927db1d7d1b9e755a4dbe689a78492a7c7b44c8"
   integrity sha512-v4TlS2Vaq6TymzgTiSvU9gBU9xcFcnTDWFrnswmOfWOqU6Qd8v3KdHMRQ0/SWEgPkdqFKkDFivJEk5aGLfa4VQ==
   dependencies:
     "@any-touch/core" "^2.0.2"
     "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.3.0-beta5"
+    "@futuremeng/vue-audio-player" "1.3.0-beta5"
     vue "^2.6.14"
     vue-router "^3.5.3"
 
-"@liripeng/vue-audio-player@1.4.1-beta":
+"@futuremeng/vue-audio-player@1.4.1-beta":
   version "1.4.1-beta"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.1-beta.tgz#e5506db8ac34a5c6d6b50496ac0a0bb602d80b13"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.4.1-beta.tgz#e5506db8ac34a5c6d6b50496ac0a0bb602d80b13"
   integrity sha512-w52+E+x+ltHfyswz+H3Jpj1Evx3tomJrPi4hwyzn3Eqvu9UsAf9xTIoNG6eFTTubbNYEu0cPD9q+Kj5eZ4pI9Q==
   dependencies:
     "@any-touch/core" "^2.0.2"
     "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.0"
+    "@futuremeng/vue-audio-player" "1.4.0"
     vue "^2.6.14"
     vue-router "^3.5.3"
 
-"@liripeng/vue-audio-player@1.4.1-beta1":
+"@futuremeng/vue-audio-player@1.4.1-beta1":
   version "1.4.1-beta1"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.1-beta1.tgz#094d4939c637fdbe4a8ba4224603969f8cea9b9d"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.4.1-beta1.tgz#094d4939c637fdbe4a8ba4224603969f8cea9b9d"
   integrity sha512-Y4aUFJk9LfdWueFkqDC2Juk17gul35L6hEtoSWyWExNVY9XJflyBsXFe6EHTaVaHLq9Ij7oKSs29JrMmnxvNcQ==
   dependencies:
     "@any-touch/core" "^2.0.2"
     "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.1-beta"
+    "@futuremeng/vue-audio-player" "1.4.1-beta"
     vue "^2.6.14"
     vue-router "^3.5.3"
 
-"@liripeng/vue-audio-player@1.5.0":
+"@futuremeng/vue-audio-player@1.5.0":
   version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.5.0.tgz#c5475b1127e84ecf382b2b8735b10cb4e382aed0"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.5.0.tgz#c5475b1127e84ecf382b2b8735b10cb4e382aed0"
   integrity sha512-nt51tfMlzanb2LgiLD0nMQWGjoN1iCf2CBQPlnJvpn5SySBBDoCzNxqBPKaLGfNmFsi+yrd84cC3ZY0D/qMICg==
   dependencies:
     "@any-touch/core" "^2.0.2"
     "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.1-beta1"
+    "@futuremeng/vue-audio-player" "1.4.1-beta1"
     vue "^3.2.31"
     vue-router "^4.0.14"
 
-"@liripeng/vue-audio-player@1.5.1":
+"@futuremeng/vue-audio-player@1.5.1":
   version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@liripeng/vue-audio-player/-/vue-audio-player-1.5.1.tgz#7e9ef97799a6b9b1be159141cf9eeb43ad38b0ea"
+  resolved "https://registry.yarnpkg.com/@futuremeng/vue-audio-player/-/vue-audio-player-1.5.1.tgz#7e9ef97799a6b9b1be159141cf9eeb43ad38b0ea"
   integrity sha512-UtXhPC1GKvqnF5tNo+PRF89FgSn1NHvRmp/P0Zzcm+pY+1dy/K4O1vxGq5dFZdhKyG8PrjOhMZmrRFNVjVhOqg==
   dependencies:
     "@any-touch/core" "^2.2.0"
     "@any-touch/pan" "^2.2.0"
-    "@liripeng/vue-audio-player" "1.5.0"
+    "@futuremeng/vue-audio-player" "1.5.0"
     vue "^3.2.47"
     vue-router "^4.1.6"
 
