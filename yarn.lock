@@ -16,7 +16,7 @@
     "@any-touch/vector" "^2.2.0"
     tslib "^2.3.1"
 
-"@any-touch/core@^2.0.1", "@any-touch/core@^2.0.2", "@any-touch/core@^2.2.0":
+"@any-touch/core@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@any-touch/core/-/core-2.2.0.tgz"
   integrity sha512-xMHAA5aLCatFto+4fQWyE4YAsyN/LsXS4mnYuVpqFYoNz8dl5FsB/TIyb9JrqMKLYMxxcZ9joqR8gDprH1lwBw==
@@ -24,7 +24,7 @@
     "@any-touch/shared" "^2.2.0"
     any-event "^2.2.0"
 
-"@any-touch/pan@^2.0.1", "@any-touch/pan@^2.0.2", "@any-touch/pan@^2.2.0":
+"@any-touch/pan@^2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@any-touch/pan/-/pan-2.2.0.tgz"
   integrity sha512-uMkCHbTm5qWji/FvhumP9n1ZCkPU7hy864g+ZhoWZ0OWAmn7s/TKRo4UqPBfqEPUMV6obGZvatrrgBLWT6J57w==
@@ -44,7 +44,7 @@
   dependencies:
     "@any-touch/shared" "^2.2.0"
 
-"@babel/parser@^7.18.4", "@babel/parser@^7.20.15", "@babel/parser@^7.21.3":
+"@babel/parser@^7.20.15", "@babel/parser@^7.21.3":
   version "7.22.7"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.22.7.tgz"
   integrity sha512-7NF8pOkHP5o2vpmGgNGcfAeCvOYhGLyA3Z4eBQkT1RJlWu47n63bCs93QfJ2hIAFCil7L5P2IWhs1oToVgrL0Q==
@@ -191,17 +191,6 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.44.0.tgz"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
-"@futuremeng/vue-audio-player@1.5.10":
-  version "1.5.10"
-  resolved "https://registry.npmjs.org/@futuremeng/vue-audio-player/-/vue-audio-player-1.5.10.tgz"
-  integrity sha512-K/Ow7H9Xfe133a06KbOjK0l5mIM3NyLUMTDohlLUwEgG14MZ9MYw53QsTuH9zuTiHJ+/WbpJ6BY9Kbq+mkoCmQ==
-  dependencies:
-    "@any-touch/core" "^2.2.0"
-    "@any-touch/pan" "^2.2.0"
-    "@liripeng/vue-audio-player" "1.5.1"
-    vue "^3.2.47"
-    vue-router "^4.2.4"
-
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.10.tgz"
@@ -225,71 +214,6 @@
   version "1.4.15"
   resolved "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
-
-"@liripeng/vue-audio-player@1.3.0-beta5":
-  version "1.3.0-beta5"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.3.0-beta5.tgz#3d4b5285726efb17b55db813b04dc3290cc36a0e"
-  integrity sha512-00XSEiRjz5ZLcKKkaLXXhcC0092Qz+rgi2vEAsm9vR9wtK2FNP87Ot+qozBKSR/1zWQp1RAhTDcb0tQ+XcbKjw==
-  dependencies:
-    "@any-touch/core" "^2.0.1"
-    "@any-touch/pan" "^2.0.1"
-    vue "^3.2.26"
-    vue-router "^4.0.12"
-
-"@liripeng/vue-audio-player@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.0.tgz#0927db1d7d1b9e755a4dbe689a78492a7c7b44c8"
-  integrity sha512-v4TlS2Vaq6TymzgTiSvU9gBU9xcFcnTDWFrnswmOfWOqU6Qd8v3KdHMRQ0/SWEgPkdqFKkDFivJEk5aGLfa4VQ==
-  dependencies:
-    "@any-touch/core" "^2.0.2"
-    "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.3.0-beta5"
-    vue "^2.6.14"
-    vue-router "^3.5.3"
-
-"@liripeng/vue-audio-player@1.4.1-beta":
-  version "1.4.1-beta"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.1-beta.tgz#e5506db8ac34a5c6d6b50496ac0a0bb602d80b13"
-  integrity sha512-w52+E+x+ltHfyswz+H3Jpj1Evx3tomJrPi4hwyzn3Eqvu9UsAf9xTIoNG6eFTTubbNYEu0cPD9q+Kj5eZ4pI9Q==
-  dependencies:
-    "@any-touch/core" "^2.0.2"
-    "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.0"
-    vue "^2.6.14"
-    vue-router "^3.5.3"
-
-"@liripeng/vue-audio-player@1.4.1-beta1":
-  version "1.4.1-beta1"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.4.1-beta1.tgz#094d4939c637fdbe4a8ba4224603969f8cea9b9d"
-  integrity sha512-Y4aUFJk9LfdWueFkqDC2Juk17gul35L6hEtoSWyWExNVY9XJflyBsXFe6EHTaVaHLq9Ij7oKSs29JrMmnxvNcQ==
-  dependencies:
-    "@any-touch/core" "^2.0.2"
-    "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.1-beta"
-    vue "^2.6.14"
-    vue-router "^3.5.3"
-
-"@liripeng/vue-audio-player@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.5.0.tgz#c5475b1127e84ecf382b2b8735b10cb4e382aed0"
-  integrity sha512-nt51tfMlzanb2LgiLD0nMQWGjoN1iCf2CBQPlnJvpn5SySBBDoCzNxqBPKaLGfNmFsi+yrd84cC3ZY0D/qMICg==
-  dependencies:
-    "@any-touch/core" "^2.0.2"
-    "@any-touch/pan" "^2.0.2"
-    "@liripeng/vue-audio-player" "1.4.1-beta1"
-    vue "^3.2.31"
-    vue-router "^4.0.14"
-
-"@liripeng/vue-audio-player@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmmirror.com/@liripeng/vue-audio-player/-/vue-audio-player-1.5.1.tgz#7e9ef97799a6b9b1be159141cf9eeb43ad38b0ea"
-  integrity sha512-UtXhPC1GKvqnF5tNo+PRF89FgSn1NHvRmp/P0Zzcm+pY+1dy/K4O1vxGq5dFZdhKyG8PrjOhMZmrRFNVjVhOqg==
-  dependencies:
-    "@any-touch/core" "^2.2.0"
-    "@any-touch/pan" "^2.2.0"
-    "@liripeng/vue-audio-player" "1.5.0"
-    vue "^3.2.47"
-    vue-router "^4.1.6"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -346,15 +270,6 @@
   dependencies:
     "@vue/compiler-core" "3.3.4"
     "@vue/shared" "3.3.4"
-
-"@vue/compiler-sfc@2.7.14":
-  version "2.7.14"
-  resolved "https://registry.npmjs.org/@vue/compiler-sfc/-/compiler-sfc-2.7.14.tgz"
-  integrity sha512-aNmNHyLPsw+sVvlQFQ2/8sjNuLtK54TC6cuKnVzAY93ks4ZBrvwQSnkkIh7bsbNhum5hJBS00wSDipQ937f5DA==
-  dependencies:
-    "@babel/parser" "^7.18.4"
-    postcss "^8.4.14"
-    source-map "^0.6.1"
 
 "@vue/compiler-sfc@3.3.4":
   version "3.3.4"
@@ -573,7 +488,7 @@ cssesc@^3.0.0:
   resolved "https://registry.npmjs.org/cssesc/-/cssesc-3.0.0.tgz"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
-csstype@^3.1.0, csstype@^3.1.1:
+csstype@^3.1.1:
   version "3.1.2"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
@@ -1272,7 +1187,7 @@ postcss-selector-parser@^6.0.9:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
-postcss@^8.1.10, postcss@^8.4.14, postcss@^8.4.26:
+postcss@^8.1.10, postcss@^8.4.26:
   version "8.4.27"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.27.tgz"
   integrity sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==
@@ -1374,11 +1289,6 @@ source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/source-map-js/-/source-map-js-1.0.2.tgz"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
-
-source-map@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz"
-  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 strip-ansi@^6.0.1:
   version "6.0.1"
@@ -1492,27 +1402,14 @@ vue-eslint-parser@^9.3.0:
     lodash "^4.17.21"
     semver "^7.3.6"
 
-vue-router@^3.5.3:
-  version "3.6.5"
-  resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.6.5.tgz"
-  integrity sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ==
-
-vue-router@^4.0.12, vue-router@^4.0.14, vue-router@^4.1.6, vue-router@^4.2.4:
+vue-router@^4.2.4:
   version "4.2.4"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-4.2.4.tgz"
   integrity sha512-9PISkmaCO02OzPVOMq2w82ilty6+xJmQrarYZDkjZBfl4RvYAlt4PKnEX21oW4KTtWfa9OuO/b3qk1Od3AEdCQ==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
 
-vue@^2.6.14:
-  version "2.7.14"
-  resolved "https://registry.npmjs.org/vue/-/vue-2.7.14.tgz"
-  integrity sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ==
-  dependencies:
-    "@vue/compiler-sfc" "2.7.14"
-    csstype "^3.1.0"
-
-vue@^3.2.26, vue@^3.2.31, vue@^3.2.47, vue@^3.3.4:
+vue@^3.3.4:
   version "3.3.4"
   resolved "https://registry.npmjs.org/vue/-/vue-3.3.4.tgz"
   integrity sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==
